@@ -9,21 +9,21 @@ phases:
       - echo Doing mvn test...
       - mvn test
       - echo Logging in to Amazon ECR...
-      - aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 190547127216.dkr.ecr.us-west-2.amazonaws.com
-      - REPOSITORY_URI=190547127216.dkr.ecr.us-west-2.amazonaws.com/eureka
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 190547127216.dkr.ecr.us-east-1.amazonaws.com
+      - REPOSITORY_URI=190547127216.dkr.ecr.us-east-1.amazonaws.com/eureka
       - IMAGE_TAG=latest
   build:
     commands:
       - echo Build started on `date`
       - mvn package
       - docker build -t eureka .
-      - docker tag eureka:latest 190547127216.dkr.ecr.us-west-2.amazonaws.com/eureka:latest
+      - docker tag eureka:latest 640037134104.dkr.ecr.us-east-1.amazonaws.com/eureka:latest
   post_build:
     commands:
       - echo Build completed on `date`
-      - docker push 190547127216.dkr.ecr.us-west-2.amazonaws.com/eureka:latest
+      - docker push 190547127216.dkr.ecr.us-east-1.amazonaws.com/eureka:latest
       - echo Writing image definitions file...
-      - printf '{"ImageURI":"190547127216.dkr.ecr.us-west-2.amazonaws.com/eureka:latest"}' > imageDetail.json
+      - printf '{"ImageURI":"640037134104.dkr.ecr.us-east-1.amazonaws.com/eureka:latest"}' > imageDetail.json
 artifacts:
   files: 
     - imageDetail.json
