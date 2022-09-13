@@ -21,7 +21,7 @@ phases:
   post_build:
     commands:
       - echo Build completed on `date`
-      - docker push 190547127216.dkr.ecr.us-east-1.amazonaws.com/eureka:latest
+      - docker push 640037134104.dkr.ecr.us-east-1.amazonaws.com/eureka:latest
       - echo Writing image definitions file...
       - printf '{"ImageURI":"640037134104.dkr.ecr.us-east-1.amazonaws.com/eureka:latest"}' > imageDetail.json
 artifacts:
