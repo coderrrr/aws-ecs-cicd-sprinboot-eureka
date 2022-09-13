@@ -9,8 +9,8 @@ phases:
       - echo Doing mvn test...
       - mvn test
       - echo Logging in to Amazon ECR...
-      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 190547127216.dkr.ecr.us-east-1.amazonaws.com
-      - REPOSITORY_URI=190547127216.dkr.ecr.us-east-1.amazonaws.com/eureka
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 640037134104.dkr.ecr.us-east-1.amazonaws.com
+      - REPOSITORY_URI=640037134104.dkr.ecr.us-east-1.amazonaws.com/eureka
       - IMAGE_TAG=latest
   build:
     commands:
